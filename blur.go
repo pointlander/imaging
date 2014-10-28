@@ -23,14 +23,14 @@ func absint(i int) int {
 //
 //		dstImage := imaging.Blur(srcImage, 3.5)
 //
-func Blur(img image.Image, sigma float64) *image.NRGBA {
+func Blur(img image.Image, sigma float64, alpha int) *image.NRGBA {
 	if sigma <= 0 {
 		// sigma parameter must be positive!
 		return Clone(img)
 	}
 
 	src := toNRGBA(img)
-	radius := int(math.Ceil(sigma * 3.0))
+	radius := int(math.Ceil(sigma * float64(alpha)))
 	kernel := make([]float64, radius+1)
 
 	for i := 0; i <= radius; i++ {

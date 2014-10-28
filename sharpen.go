@@ -18,7 +18,7 @@ func Sharpen(img image.Image, sigma float64) *image.NRGBA {
 	}
 
 	src := toNRGBA(img)
-	blurred := Blur(img, sigma)
+	blurred := Blur(img, sigma, 3)
 
 	width := src.Bounds().Max.X
 	height := src.Bounds().Max.Y
